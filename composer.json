@@ -1,0 +1,15 @@
+{
+  "name": "wangqs/visit-detail",
+  "description": "Check the details of this visit, including whether the source the search engine and source keywords 查看本次访问的详情，包含是否来源与搜索引擎和来源关键词",
+  "license": "MIT",
+  "require": {
+    "ext-curl": "*",
+    "guzzlehttp/guzzle": "^7.2",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wangqs\\VisitDetail\\": "src"
+    }
+  }
+}
