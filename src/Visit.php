@@ -33,6 +33,7 @@
 				'recruit' => self::recruit( $url ) ,
 				'origin'  => $origin ,
 				'keyword' => $keyword ,
+				'isBot'   => self::isBot() ,
 			];
 
 		}
@@ -81,6 +82,10 @@
 		}
 
 
+		/**
+		 * @author     :  Wangqs  2021/4/20
+		 * @description:  尝试获取来源关键词
+		 */
 		protected static function keyword ( string $referer , int $identifierId ) {
 
 			switch ( $identifierId ) {
@@ -93,6 +98,27 @@
 				default:
 					return '';
 			}
+
+		}
+
+
+		/**
+		 * @author     :  Wangqs  2021/4/20
+		 * @description:  是否为搜索引擎蜘蛛来访
+		 */
+		protected static function isBot () {
+			$userAgent = strtolower( $_SERVER['HTTP_USER_AGENT'] );
+
+			$spiderPool = self::spiderPool();
+
+			foreach ( $spiderPool as $spider ) {
+				$spider = strtolower( $spider );
+				if ( strpos( $userAgent , $spider ) !== false ) {
+					return $spider;
+				}
+			}
+
+			return false;
 
 		}
 
@@ -116,6 +142,36 @@
 			$bodyStr = (string) $body; //对象转字串
 
 			return trim( str_replace( [ '关键字：' , '<br>' ] , '' , $bodyStr ) );
+		}
+
+
+		/**
+		 * @author     :  Wangqs  2021/4/20
+		 * @description:  常见蜘蛛池
+		 */
+		protected static function spiderPool () : array {
+			return [
+				"TencentTraveler" ,
+				"Baiduspider+" ,
+				"BaiduGame" ,
+				"Googlebot" ,
+				"msnbot" ,
+				"Sosospider+" ,
+				"Sogou web spider" ,
+				"Yahoo! Slurp" ,
+				"YoudaoBot" ,
+				"Yahoo Slurp" ,
+				"BaiDuSpider" ,
+				"Yandex bot" ,
+				"BSpider" ,
+				"twiceler" ,
+				"Sogou Spider" ,
+				"Speedy Spider" ,
+				"Google AdSense" ,
+				"Alexa (IA Archiver)" ,
+				"Bytespider" ,
+				"Yisouspider" ,
+			];
 		}
 
 
