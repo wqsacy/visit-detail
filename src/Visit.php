@@ -23,14 +23,12 @@
 
 			$referer = $_SERVER['HTTP_REFERER'] ?? '';
 
-
 			$origin = self::origin( $referer );
 
 			if ( isset( $origin['id'] ) )
 				$keyword = self::keyword( $referer , $origin['id'] );
 			else
 				$keyword = '';
-
 
 			return [
 				'recruit' => self::recruit( $url ) ,
