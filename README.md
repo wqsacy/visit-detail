@@ -5,7 +5,7 @@
 ## Installing
 
 ```shell
-$ composer require wqsacy/visit-detail -vvv
+$ composer require wangqs/visit-detail -vvv
 ```
 
 ## Usage
