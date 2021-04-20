@@ -26,15 +26,15 @@
 
 			$origin = self::origin( $referer );
 
-			if ( isset( $data['origin']['id'] ) )
-				$keyword = self::keyword( $referer , $origin );
+			if ( isset( $origin['id'] ) )
+				$keyword = self::keyword( $referer , $origin['id'] );
 			else
 				$keyword = '';
 
 
 			return [
 				'recruit' => self::recruit( $url ) ,
-				'origin'  => $origin ,
+				'origin'  => $origin['name'] ,
 				'keyword' => $keyword ,
 				'isBot'   => self::isBot() ,
 				'url'     => $url ,
@@ -54,7 +54,7 @@
 			curl_setopt( $curl , CURLOPT_RETURNTRANSFER , 1 );
 			$rs = curl_exec( $curl );
 			curl_close( $curl );
-			if ( !strpos( $rs , '抱歉没有找到与' ) ) {
+			if ( !strpos( $rs , '没有找到与' ) ) {
 				return true;
 			}
 			else {
