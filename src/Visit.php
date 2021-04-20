@@ -34,6 +34,7 @@
 				'origin'  => $origin ,
 				'keyword' => $keyword ,
 				'isBot'   => self::isBot() ,
+				'url'     => $url ,
 			];
 
 		}
