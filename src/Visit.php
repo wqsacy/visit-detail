@@ -34,7 +34,7 @@
 
 			return [
 				'recruit' => self::recruit( $url ) ,
-				'origin'  => $origin['name'] ,
+				'origin'  => $origin['name'] ?? false ,
 				'keyword' => $keyword ,
 				'isBot'   => self::isBot() ,
 				'url'     => $url ,
