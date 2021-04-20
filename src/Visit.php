@@ -15,7 +15,10 @@
 		public static function detail ( string $url = '' ) : array {
 
 			if ( !$url ) {
-				$url = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . $_SERVER['QUERY_STRING'];
+				$url = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+
+				if ( $_SERVER['QUERY_STRING'] )
+					$url .= '?' . $_SERVER['QUERY_STRING'];
 			}
 
 			$referer = $_SERVER['HTTP_REFERER'] ?? '';
