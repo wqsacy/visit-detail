@@ -10,7 +10,9 @@ $ composer require wangqs/visit-detail -vvv
 
 ## Usage
 
-TODO
+Wangqs\VisitDetail\Visit::detail();
+
+Wangqs\VisitDetail\Visit::detail('www.xxx.com');
 
 ## Contributing
 

@@ -12,7 +12,7 @@
 		 * @author     :  Wangqs  2021/4/19
 		 * @description:  获取详情
 		 */
-		public static function detail ( string $url ) : array {
+		public static function detail ( string $url = '' ) : array {
 
 			if ( !$url ) {
 				$url = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . $_SERVER['QUERY_STRING'];
